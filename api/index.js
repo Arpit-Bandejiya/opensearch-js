@@ -32,6 +32,7 @@
 const bulkApi = require('./api/bulk');
 const CatApi = require('./api/cat');
 const clearScrollApi = require('./api/clear_scroll');
+const createPitApi = require('./api/create_pit');
 const ClusterApi = require('./api/cluster');
 const countApi = require('./api/count');
 const createApi = require('./api/create');
@@ -107,6 +108,7 @@ function OpenSearchAPI(opts) {
 
 OpenSearchAPI.prototype.bulk = bulkApi;
 OpenSearchAPI.prototype.clearScroll = clearScrollApi;
+OpenSearchAPI.prototype.createPit = createPitApi;
 OpenSearchAPI.prototype.count = countApi;
 OpenSearchAPI.prototype.create = createApi;
 OpenSearchAPI.prototype.delete = deleteApi;
@@ -157,6 +159,11 @@ Object.defineProperties(OpenSearchAPI.prototype, {
   clear_scroll: {
     get() {
       return this.clearScroll;
+    },
+  },
+  create_pit: {
+    get() {
+      return this.createPit;
     },
   },
   cluster: {

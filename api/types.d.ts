@@ -101,6 +101,17 @@ export interface BulkUpdateOperation extends BulkOperation { }
 
 export interface BulkUpdateResponseItem extends BulkResponseItemBase { }
 
+export interface PointInTimeCreateRequest extends RequestBase {
+  index: IndexName
+  keep_alive: string
+}
+
+export interface PointInTimeCreateResponse extends AcknowledgedResponseBase {
+  pit_id: string
+  _shards?: any
+  creation_time: any
+}
+
 export interface ClearScrollRequest extends RequestBase {
   scroll_id?: Ids;
   body?: {
